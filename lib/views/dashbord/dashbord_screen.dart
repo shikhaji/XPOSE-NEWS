@@ -1,3 +1,4 @@
+import 'package:carousel_nullsafety/carousel_nullsafety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
@@ -12,9 +13,13 @@ class DashbordScreen extends StatefulWidget {
 }
 
 class _DashbordScreenState extends State<DashbordScreen> {
+  List<String> data = ['All', 'Political', 'Sport', 'Technology', 'Science'];
+  Color _containerColor = ColorUtils.whiteColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorUtils.whiteColor,
         appBar: AppBar(
           toolbarHeight: 80,
           backgroundColor: ColorUtils.whiteColor,
@@ -73,14 +78,15 @@ class _DashbordScreenState extends State<DashbordScreen> {
                                 width: 25.w, //width of button
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    primary: ColorUtils.redColor, //background color of button
+                                    primary: ColorUtils
+                                        .redColor, //background color of button
                                     elevation: 3,
                                     shape: RoundedRectangleBorder(
-                                      //to set border radius to button
-                                        borderRadius: BorderRadius.circular(20)),
+                                        //to set border radius to button
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                   ),
-                                  onPressed: () async {
-                                  },
+                                  onPressed: () async {},
                                   child: Text(
                                     "Search",
                                     style: FontTextStyle.poppinsS16W7WhiteColor,
@@ -100,7 +106,62 @@ class _DashbordScreenState extends State<DashbordScreen> {
                     )
                   ],
                 ),
-
+                SizedBox(height: 1.h),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: const ClampingScrollPhysics(),
+                  child: Row(
+                    children:[
+                      Wrap(
+                        direction: Axis.horizontal,
+                        children: List.generate(5, (index){
+                          return InkWell(
+                            onTap: (){
+                              setState(() {
+                                _containerColor = ColorUtils.redColor;
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              margin: const EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                  color: _containerColor,
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                      color: ColorUtils.blackColor, width: 1)),
+                              child: Text(data[index], textAlign: TextAlign.center),
+                            ),
+                          );
+                        }),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      height: 200,
+                      width: double.infinity,
+                      child: Carousel(
+                        // images:[
+                        //   for(var i=0; i<images!.length ; i++)...[
+                        //     Image.network('https://celebrationstation.in/uploads/'+images![i]['IMAGE_URL'])
+                        //   ]
+                        // ],
+                        //images.map((e) => Image.network('https://celebrationstation.in/uploads/'+images[e]['IMAGE_URL'])).toList(),
+                        showIndicator: true,
+                        autoplay: true,
+                        autoplayDuration: Duration(seconds: 2),
+                        borderRadius: false,
+                        moveIndicatorFromBottom: 180.0,
+                        overlayShadow: true,
+                        overlayShadowColors: Colors.black,
+                        overlayShadowSize: 0.4,
+                        indicatorBgPadding: 5,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
