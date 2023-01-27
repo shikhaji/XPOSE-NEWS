@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class ColorUtils{
 
+  static Color appBgWhiteColor = const Color(0xffffffff);
   static Color appBgColor = const Color(0xffaabeda);
+  static Color transparentColor = const Color(0xffaabeda);
   static Color primaryColor = const Color(0xFFE1BEE7);
   static Color skyColor = const Color(0xffd5e4ff);
   static Color whiteColor = Colors.white;
@@ -19,7 +21,7 @@ class ColorUtils{
   static Color darkBlueColor = const Color(0xff075d80);
   static Color pinkColor = const Color(0xfffc5774);
   static Color yellowColor = const Color(0xffffd464);
-  static Color redColor = const Color(0xFFB71C1C);
+  static Color redColor = const Color(0xFFFF0000);
   static Color lightRedColor = const Color(0xFFFFEBEE);
   static Color lightPinkColor = const Color(0xFFFCE4EC);
   static Color aliceBlue = const Color(0xfff6f8fa);
