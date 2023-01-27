@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:xposenews/Utils/fontFamily_utils.dart';
+import 'package:xposenews/widgets/custom_widgets/custom_app_drawer.dart';
 import '../../Utils/colors_utils.dart';
 
 class DashbordScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorUtils.whiteColor,
+        drawer: CustomDrawer(),
         appBar: AppBar(
           toolbarHeight: 80,
           backgroundColor: ColorUtils.whiteColor,
@@ -137,31 +139,31 @@ class _DashbordScreenState extends State<DashbordScreen> {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    SizedBox(
-                      height: 200,
-                      width: double.infinity,
-                      child: Carousel(
-                        // images:[
-                        //   for(var i=0; i<images!.length ; i++)...[
-                        //     Image.network('https://celebrationstation.in/uploads/'+images![i]['IMAGE_URL'])
-                        //   ]
-                        // ],
-                        //images.map((e) => Image.network('https://celebrationstation.in/uploads/'+images[e]['IMAGE_URL'])).toList(),
-                        showIndicator: true,
-                        autoplay: true,
-                        autoplayDuration: Duration(seconds: 2),
-                        borderRadius: false,
-                        moveIndicatorFromBottom: 180.0,
-                        overlayShadow: true,
-                        overlayShadowColors: Colors.black,
-                        overlayShadowSize: 0.4,
-                        indicatorBgPadding: 5,
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     SizedBox(
+                //       height: 200,
+                //       width: double.infinity,
+                //       child: Carousel(
+                //         // images:[
+                //         //   for(var i=0; i<images!.length ; i++)...[
+                //         //     Image.network('https://celebrationstation.in/uploads/'+images![i]['IMAGE_URL'])
+                //         //   ]
+                //         // ],
+                //         //images.map((e) => Image.network('https://celebrationstation.in/uploads/'+images[e]['IMAGE_URL'])).toList(),
+                //         showIndicator: true,
+                //         autoplay: true,
+                //         autoplayDuration: Duration(seconds: 2),
+                //         borderRadius: false,
+                //         moveIndicatorFromBottom: 180.0,
+                //         overlayShadow: true,
+                //         overlayShadowColors: Colors.black,
+                //         overlayShadowSize: 0.4,
+                //         indicatorBgPadding: 5,
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
