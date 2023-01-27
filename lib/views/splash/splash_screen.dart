@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   initState() {
     super.initState();
     Timer(
-        Duration(seconds: 5),
+        Duration(seconds: 3),
             () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => WalkThroughScreen())));
   }
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
           body: Center(
               child: Image.asset(
                 "assets/images/logowhite.jpeg",
-                scale: 1,
+                scale: 2,
               ),
           ),
         )

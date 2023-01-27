@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
 import 'package:xposenews/Utils/colors_utils.dart';
+import 'package:xposenews/views/dashboard/dashbord_screen.dart';
 import 'package:xposenews/views/dashboard/settings.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -25,6 +26,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   List pages = [
+    DashbordScreen(),
+    Settings(),
+    Settings(),
+    DashbordScreen(),
     Settings()
   ];
 
@@ -37,26 +42,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: [
-          Container(color: Colors.blue),
-          Container(color: Colors.red),
-          Container(color: Colors.greenAccent.shade700),
-          Container(color: Colors.orange),
-        ],
-        onPageChanged: (index) {
-          // Use a better state management solution
-          // setState is used for simplicity
-          setState(() => _currentPage = index);
-        },
-      ),
+      body: pages[_currentPage],
       bottomNavigationBar: BottomBar(
         selectedIndex: _currentPage,
-        onTap: (int index) {
-          _pageController.jumpToPage(index);
-          setState(() => _currentPage = index);
-        },
+        onTap: onTap,
         items: <BottomBarItem>[
           BottomBarItem(
             icon: Icon(Icons.home),

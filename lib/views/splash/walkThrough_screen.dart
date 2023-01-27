@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:xposenews/views/dashbord/dashbord_screen.dart';
+import 'package:xposenews/views/dashboard/bottonNavBar/bottom_nav_bar.dart';
+import 'package:xposenews/views/dashboard/dashbord_screen.dart';
 import 'package:xposenews/views/splash/walkThrough_Page1.dart';
 import 'package:xposenews/views/splash/walkThrough_Page2.dart';
 import 'package:xposenews/views/splash/walkThrough_Page3.dart';
@@ -84,7 +85,7 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                           borderRadius: BorderRadius.circular(20)),
                     ),
                     onPressed: () async {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => DashbordScreen(),));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavBar(index: 0),));
                       // Navigator.of(context).pushAndRemoveUntil(
                       //     MaterialPageRoute(builder: (context) => DashbordScreen()),
                       //         (Route<dynamic> route) => false);

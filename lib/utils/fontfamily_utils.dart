@@ -34,6 +34,12 @@ class FontTextStyle {
       color: ColorUtils.labelColor,
       fontWeight: FontWeightClass.regular);
 
+  static TextStyle poppinsS10HintColor = TextStyle(
+      fontFamily: poppinsFamily,
+      fontSize: 10.sp,
+      color: ColorUtils.labelColor,
+      fontWeight: FontWeightClass.regular);
+
   static TextStyle poppinsS14W4BlackColor =
   poppinsS14HintColor.copyWith(color:ColorUtils.blackColor);
 

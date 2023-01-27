@@ -25,7 +25,7 @@ class _Page2State extends State<Page2> {
                 width: double.infinity,
                 scale: 5,
               ),
-              SizedBox(height: 64),
+              SizedBox(height: 25),
               Text(
                 'Title',
                 style: FontTextStyle.poppinsS14W4BlackColor,

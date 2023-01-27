@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:xposenews/views/dashboard/bottonNavBar/bottom_nav_bar.dart';
-import 'package:xposenews/views/dashboard/settings.dart';
+import 'package:sizer/sizer.dart';
+import 'package:xposenews/views/splash/splash_screen.dart';
+import 'package:xposenews/views/splash/walkThrough_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,12 +10,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BottomNavBar(index: 0),
-      debugShowCheckedModeBanner: false,
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        themeMode: ThemeMode.system,
+        debugShowCheckedModeBanner: false,
+        initialRoute: "${SplashScreen()}",
+        home: SplashScreen(),
+      );
+    });
   }
 }

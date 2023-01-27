@@ -25,7 +25,7 @@ class _Page3State extends State<Page3> {
                 fit: BoxFit.cover,
                 width: double.infinity,
               ),
-              SizedBox(height: 64),
+              SizedBox(height: 25),
               Text(
                 'Title',
                 style: FontTextStyle.poppinsS14W4BlackColor,
