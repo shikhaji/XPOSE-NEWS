@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:xposenews/Utils/colors_utils.dart';
+import 'package:xposenews/views/splash/walkThrough_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -9,14 +13,26 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 5),
+            () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => WalkThroughScreen())));
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
         child: Scaffold(
+          backgroundColor: ColorUtils.appBgWhiteColor,
           body: Center(
               child: Image.asset(
-                "asset/images/logo.png",
-                scale: 2,
-              )),
-        ));
+                "assets/images/logowhite.jpeg",
+                scale: 1,
+              ),
+          ),
+        )
+    );
   }
 }
