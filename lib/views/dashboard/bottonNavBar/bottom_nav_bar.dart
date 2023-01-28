@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
 import 'package:xposenews/Utils/colors_utils.dart';
+import 'package:xposenews/views/dashboard/bottonNavBar/trending.dart';
 import 'package:xposenews/views/dashboard/dashbord_screen.dart';
 import 'package:xposenews/views/dashboard/settings.dart';
 
@@ -27,7 +28,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List pages = [
     DashbordScreen(),
-    Settings(),
+    Trending(),
     Settings(),
     DashbordScreen(),
     Settings()

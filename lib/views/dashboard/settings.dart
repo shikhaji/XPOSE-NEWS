@@ -39,25 +39,28 @@ class _SettingsState extends State<Settings> {
                     blurRadius: 5.0,
                   ),]
               ),
-              margin: EdgeInsets.all(20.0),
+              margin: EdgeInsets.all(15.0),
               height: 33.h,
               child: Column(
                 children: [
                   ProfileMenu(
                     icon: CupertinoIcons.profile_circled,
-                    text: "Edit Profile",
+                    title: "Edit Profile",
+                    subtitle: "Hello",
                     press: () async{
                     },
                   ),
                   ProfileMenu(
                     icon: CupertinoIcons.mail,
-                    text: "Contact us",
+                    title: "Contact us",
+                    subtitle: "Hello",
                     press: () {
                     },
                   ),
                   ProfileMenu(
                     icon: Icons.note_outlined,
-                    text: "Terms & Condition",
+                    title: "Terms & Condition",
+                    subtitle: "Hello",
                     press: (){
                     },
                   ),
@@ -73,25 +76,25 @@ class _SettingsState extends State<Settings> {
                     blurRadius: 5.0,
                   ),]
               ),
-              margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-              height: 33.h,
+              margin: EdgeInsets.only(left: 15, right: 15, bottom: 15),
+              height: 25.h,
               child: Column(
                 children: [
-                  ProfileMenu(
-                    icon: CupertinoIcons.profile_circled,
-                    text: "Edit Profile",
+                  ProfileMenu2(
+                    icon: CupertinoIcons.star_circle_fill,
+                    text: "   Scoreboard",
                     press: () async{
                     },
                   ),
-                  ProfileMenu(
-                    icon: CupertinoIcons.mail,
-                    text: "Contact us",
+                  ProfileMenu2(
+                    icon: CupertinoIcons.add,
+                    text: "   New Courses",
                     press: () {
                     },
                   ),
-                  ProfileMenu(
-                    icon: Icons.note_outlined,
-                    text: "Terms & Condition",
+                  ProfileMenu2(
+                    icon: Icons.notifications,
+                    text: "   Study reminder",
                     press: (){
                     },
                   ),
@@ -107,25 +110,28 @@ class _SettingsState extends State<Settings> {
                     blurRadius: 5.0,
                   ),]
               ),
-              margin: EdgeInsets.only(left: 20, right: 20),
+              margin: EdgeInsets.only(left: 15, right: 15, bottom: 15),
               height: 33.h,
               child: Column(
                 children: [
                   ProfileMenu(
                     icon: CupertinoIcons.question_circle,
-                    text: "Help Center",
+                    title: "Help Center",
+                    subtitle: "Hello",
                     press: () async{
                     },
                   ),
                   ProfileMenu(
                     icon: CupertinoIcons.shield_lefthalf_fill,
-                    text: "Privacy & Terms",
+                    title: "Privacy & Terms",
+                    subtitle: "abc",
                     press: () {
                     },
                   ),
                   ProfileMenu(
                     icon: Icons.chat_bubble,
-                    text: "Contact Us",
+                    title: "Contact Us",
+                    subtitle: "heloo",
                     press: (){
                     },
                   ),
@@ -142,12 +148,14 @@ class _SettingsState extends State<Settings> {
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
     Key? key,
-    required this.text,
+    required this.title,
+    required this.subtitle,
     required this.icon,
     required this.press,
   }) : super(key: key);
 
-  final String text;
+  final String title;
+  final String subtitle;
   final IconData icon;
   final VoidCallback press;
   @override
@@ -174,8 +182,8 @@ class ProfileMenu extends StatelessWidget {
             ),
             Expanded(
               child: ListTile(
-                title: Text(text,style: FontTextStyle.poppinsS14W4BlackColor),
-                subtitle: Text(text, style: FontTextStyle.poppinsS10HintColor),
+                title: Text(title,style: FontTextStyle.poppinsS14W4BlackColor),
+                subtitle: Text(subtitle, style: FontTextStyle.poppinsS10HintColor),
               ),
             ),
             Column(
@@ -185,10 +193,77 @@ class ProfileMenu extends StatelessWidget {
                     icon: Icon(
                       size: 14,
                       Icons.arrow_forward_ios,
-                      color: Colors.grey[600],
+                      color: ColorUtils.grey,
                     ),
                     onPressed: () {
                     },
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class ProfileMenu2 extends StatefulWidget {
+  const ProfileMenu2({
+    Key? key,
+    required this.text,
+    required this.icon,
+    required this.press,
+  }) : super(key: key);
+
+  final String text;
+  final IconData icon;
+  final VoidCallback press;
+
+  @override
+  State<ProfileMenu2> createState() => _ProfileMenu2State();
+}
+
+class _ProfileMenu2State extends State<ProfileMenu2> {
+  @override
+  Widget build(BuildContext context) {
+    var forAndroid = false;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 0),
+      child: TextButton(
+        style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
+            backgroundColor: ColorUtils.whiteColor
+        ),
+        onPressed: widget.press,
+        child: Row(
+          children: [
+            IconButton(
+              iconSize: 28,
+              icon: Icon(
+                widget.icon,
+                color: ColorUtils.redColor,
+              ),
+              onPressed: () {
+
+              },
+            ),
+            Expanded(
+              child: Text(widget.text,style: FontTextStyle.poppinsS14W4BlackColor),
+            ),
+            Column(
+              children: [
+                Container(
+                  child: Switch(
+                    // thumb color (round icon)
+                    activeColor: ColorUtils.redColor,
+                    activeTrackColor: ColorUtils.redColor,
+                    inactiveThumbColor: ColorUtils.skyBlueColor,
+                    inactiveTrackColor: Colors.grey.shade400,
+                    splashRadius: 50.0,
+                    // boolean variable value
+                    value: forAndroid = false,
+                    // changes the state of the switch
+                    onChanged: (value) => setState(() => forAndroid = value),
                   ),
                 ),
               ],

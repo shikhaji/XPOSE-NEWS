@@ -1,10 +1,10 @@
-import 'package:carousel_nullsafety/carousel_nullsafety.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:xposenews/Utils/fontFamily_utils.dart';
 import 'package:xposenews/widgets/custom_widgets/custom_app_drawer.dart';
 import '../../Utils/colors_utils.dart';
+import '../../widgets/custom_widgets/custom_app_appbar.dart';
 
 class DashbordScreen extends StatefulWidget {
   const DashbordScreen({Key? key}) : super(key: key);
@@ -22,40 +22,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
     return Scaffold(
       backgroundColor: ColorUtils.whiteColor,
         drawer: CustomDrawer(),
-        appBar: AppBar(
-          toolbarHeight: 80,
-          backgroundColor: ColorUtils.whiteColor,
-          automaticallyImplyLeading: false,
-          elevation: 0,
-          centerTitle: true,
-          title: Image.asset(
-            "assets/images/logowhite.jpeg",
-            height: 60,
-          ),
-          leading: Builder(builder: (context) {
-            return IconButton(
-              iconSize: 30,
-              icon: Icon(
-                Icons.menu,
-                color: ColorUtils.blackColor,
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          }),
-          actions: [
-            IconButton(
-              iconSize: 30.0,
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              onPressed: () {},
-              icon: Icon(
-                CupertinoIcons.location_solid,
-                color: ColorUtils.blackColor,
-              ),
-            ),
-          ],
-        ),
+        appBar: CustomAppBar(),
         body: Padding(
           padding: EdgeInsets.only(left: 15.0, right: 15.0),
           child: SingleChildScrollView(
