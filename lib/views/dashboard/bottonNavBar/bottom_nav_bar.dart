@@ -4,6 +4,7 @@ import 'package:xposenews/Utils/colors_utils.dart';
 import 'package:xposenews/views/dashboard/bottonNavBar/trending.dart';
 import 'package:xposenews/views/dashboard/dashbord_screen.dart';
 import 'package:xposenews/views/dashboard/settings.dart';
+import 'package:xposenews/views/singlePost_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
   final index;
@@ -30,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     DashbordScreen(),
     Trending(),
     Settings(),
-    DashbordScreen(),
+    SinglePost(),
     Settings()
   ];
 

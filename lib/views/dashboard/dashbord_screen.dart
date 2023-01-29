@@ -41,10 +41,10 @@ class _DashbordScreenState extends State<DashbordScreen> {
                           prefixIcon: const Icon(CupertinoIcons.search),
                           prefixIconColor: ColorUtils.blackColor,
                           suffixIcon: Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
+                            padding: const EdgeInsets.only(right: 1.0),
                             child: SizedBox(
-                                height: 40, //height of button
-                                width: 25.w, //width of button
+                                height: 7.h, //height of button
+                                width: 30.w, //width of button
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     primary: ColorUtils
@@ -53,7 +53,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
                                     shape: RoundedRectangleBorder(
                                         //to set border radius to button
                                         borderRadius:
-                                            BorderRadius.circular(20)),
+                                            BorderRadius.circular(30)),
                                   ),
                                   onPressed: () async {},
                                   child: Text(
@@ -75,7 +75,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
                     )
                   ],
                 ),
-                SizedBox(height: 1.h),
+                SizedBox(height: 0.5.h),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const ClampingScrollPhysics(),
@@ -106,31 +106,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
                     ],
                   ),
                 ),
-                // Row(
-                //   children: [
-                //     SizedBox(
-                //       height: 200,
-                //       width: double.infinity,
-                //       child: Carousel(
-                //         // images:[
-                //         //   for(var i=0; i<images!.length ; i++)...[
-                //         //     Image.network('https://celebrationstation.in/uploads/'+images![i]['IMAGE_URL'])
-                //         //   ]
-                //         // ],
-                //         //images.map((e) => Image.network('https://celebrationstation.in/uploads/'+images[e]['IMAGE_URL'])).toList(),
-                //         showIndicator: true,
-                //         autoplay: true,
-                //         autoplayDuration: Duration(seconds: 2),
-                //         borderRadius: false,
-                //         moveIndicatorFromBottom: 180.0,
-                //         overlayShadow: true,
-                //         overlayShadowColors: Colors.black,
-                //         overlayShadowSize: 0.4,
-                //         indicatorBgPadding: 5,
-                //       ),
-                //     ),
-                //   ],
-                // ),
+
               ],
             ),
           ),
