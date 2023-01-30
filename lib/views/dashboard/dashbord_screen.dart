@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import 'package:xposenews/Utils/fontFamily_utils.dart';
+import 'package:xposenews/widgets/custom_widgets/NewsList.dart';
+import 'package:xposenews/widgets/custom_widgets/swipeCards.dart';
 import 'package:xposenews/widgets/custom_widgets/custom_app_drawer.dart';
 import '../../Utils/colors_utils.dart';
 import '../../widgets/custom_widgets/custom_app_appbar.dart';
@@ -32,50 +34,53 @@ class _DashbordScreenState extends State<DashbordScreen> {
                 Row(
                   children: [
                     Expanded(
-                      child: TextFormField(
-                        onTap: () {},
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: ColorUtils.grey.withOpacity(0.2),
-                          prefixIcon: const Icon(CupertinoIcons.search),
-                          prefixIconColor: ColorUtils.blackColor,
-                          suffixIcon: Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: SizedBox(
-                                height: 40, //height of button
-                                width: 25.w, //width of button
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: ColorUtils
-                                        .redColor, //background color of button
-                                    elevation: 3,
-                                    shape: RoundedRectangleBorder(
-                                        //to set border radius to button
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                  ),
-                                  onPressed: () async {},
-                                  child: Text(
-                                    "Search",
-                                    style: FontTextStyle.poppinsS16W7WhiteColor,
-                                  ),
-                                )),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: const BorderSide(
-                              width: 0,
-                              style: BorderStyle.solid,
+                      child: Container(
+                        height: 6.h,
+                        child: TextFormField(
+                          onTap: () {},
+                          textInputAction: TextInputAction.next,
+                          decoration: InputDecoration(
+                            filled: true,
+                            contentPadding: EdgeInsets.only(top: 5),
+                            fillColor: ColorUtils.grey.withOpacity(0.2),
+                            prefixIcon: const Icon(CupertinoIcons.search),
+                            prefixIconColor: ColorUtils.blackColor,
+                            suffixIcon: Padding(
+                              padding: const EdgeInsets.only(right: 1.0),
+                              child: SizedBox(
+                                  height: 5.h, //height of button
+                                  width: 20.w, //width of button
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      primary: ColorUtils
+                                          .redColor, //background color of button
+                                      elevation: 3,
+                                      shape: RoundedRectangleBorder(
+                                          //to set border radius to button
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                    ),
+                                    onPressed: () async {},
+                                    child: Text(
+                                      "Search",
+                                    ),
+                                  )),
                             ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(
+                                width: 0,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            hintText: 'Find interesting news',
                           ),
-                          hintText: 'Find interesting news',
                         ),
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 1.h),
+                SizedBox(height: 0.5.h),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   physics: const ClampingScrollPhysics(),
@@ -95,7 +100,7 @@ class _DashbordScreenState extends State<DashbordScreen> {
                               margin: const EdgeInsets.all(5),
                               decoration: BoxDecoration(
                                   color: _containerColor,
-                                  borderRadius: BorderRadius.circular(20),
+                                  borderRadius: BorderRadius.circular(15),
                                   border: Border.all(
                                       color: ColorUtils.blackColor, width: 1)),
                               child: Text(data[index], textAlign: TextAlign.center),
@@ -106,31 +111,42 @@ class _DashbordScreenState extends State<DashbordScreen> {
                     ],
                   ),
                 ),
-                // Row(
-                //   children: [
-                //     SizedBox(
-                //       height: 200,
-                //       width: double.infinity,
-                //       child: Carousel(
-                //         // images:[
-                //         //   for(var i=0; i<images!.length ; i++)...[
-                //         //     Image.network('https://celebrationstation.in/uploads/'+images![i]['IMAGE_URL'])
-                //         //   ]
-                //         // ],
-                //         //images.map((e) => Image.network('https://celebrationstation.in/uploads/'+images[e]['IMAGE_URL'])).toList(),
-                //         showIndicator: true,
-                //         autoplay: true,
-                //         autoplayDuration: Duration(seconds: 2),
-                //         borderRadius: false,
-                //         moveIndicatorFromBottom: 180.0,
-                //         overlayShadow: true,
-                //         overlayShadowColors: Colors.black,
-                //         overlayShadowSize: 0.4,
-                //         indicatorBgPadding: 5,
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                SizedBox(height: 1.h),
+                Center(
+                  child: Container(
+                    height: 35.h,
+                    width: 100.w,
+                    child: Stack(
+                      //Tinder Cards
+                      children: [
+                        SwipeImageCard(),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  // padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Recommendation',
+                              style: Theme.of(context).textTheme.headline6
+                          ),
+                          TextButton(onPressed: () {}, child: Text('See all'))
+                        ],
+                      ),
+                      NewsList(),
+                      NewsList(),
+                      NewsList(),
+                      NewsList(),
+                    ],
+                  ),
+                )
               ],
             ),
           ),

@@ -45,4 +45,8 @@ class FontTextStyle {
 
   static TextStyle poppinsS14W4WhiteColor =
   poppinsS14HintColor.copyWith(color:ColorUtils.whiteColor);
+
+  static TextStyle poppinsS14W7BlackColor =
+  poppinsS14HintColor.copyWith(color:ColorUtils.blackColor,fontWeight: FontWeightClass.bold);
+
 }

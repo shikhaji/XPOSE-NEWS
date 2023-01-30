@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xposenews/views/singlePost_screen.dart';
 import 'package:xposenews/views/splash/splash_screen.dart';
 import 'package:xposenews/views/splash/walkThrough_screen.dart';
 
